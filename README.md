@@ -59,20 +59,3 @@ This Android application demonstrates a basic employee list management app built
 
 5. **Build and run the app** on the emulator or a connected device.
 
-## Future Improvements
-
-*   **Implement Pull-to-Refresh:** Replace the refresh button with a pull-to-refresh gesture.
-*   **Offline Data Caching:** Use Room or another persistence mechanism to cache data for offline use.
-*   **Improved Error Handling:** Provide more detailed error messages and retry options.
-*   **Pagination:** Implement pagination to handle large lists of employees efficiently.
-*   **Unit/UI Tests:** Add unit and UI tests to ensure code quality and prevent regressions.
-*   **Dependency Injection:** Use Hilt or Dagger for better dependency management.
-*   **HTTPS:** Use HTTPS for secure communication with a production server.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues to discuss improvements or bug fixes.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE) - see the `LICENSE` file for details (you'll need to create a LICENSE file).
