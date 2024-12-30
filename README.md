@@ -14,10 +14,26 @@ This Android application demonstrates a basic employee list management app built
 
 ## Project Structure
 
-*   **`ui.screens`:** Contains the UI components (Composables) of the app, including `EmployeeListScreen` and `EmployeeRow`.
-*   **`data.local`:**  Placeholder for data models. It currently includes a simple `Employee` data class. In a real app, this might contain database-related classes (e.g., Room entities, DAOs).
-*   **`ui.EmployeeViewModel`:** The ViewModel responsible for fetching data, managing the UI state (employees, loading, error), and handling user interactions (refresh).
-*   **`MainActivity.kt`:** The main activity that hosts the Composable UI.
+*   **`data`:**
+    *   **`local`:**
+        *   `Employee.kt`: Data class representing the Employee entity for the Room database.
+        *   `EmployeeDao.kt`: Data Access Object (DAO) interface for Room, defining database interactions.
+        *   `EmployeeDatabase.kt`: Room database class that provides access to the `EmployeeDao`.
+    *   **`remote`:**
+        *   `ApiService.kt`: Interface defining the API endpoints using Retrofit annotations.
+        *   `RetrofitInstance.kt`: Provides a configured instance of Retrofit for making network requests.
+    *   **`repository`:**
+        *   `EmployeeRepository.kt`: Repository class that acts as a single source of truth for employee data. It interacts with both the `ApiService` (for remote data) and the `EmployeeDao` (for local data).
+
+*   **`ui`:**
+    *   **`screens`:** Contains the UI components (Composables) of the app. (You should add your `EmployeeListScreen.kt` and `EmployeeRow.kt` files here).
+    *   **`theme`:** Contains files related to the app's theme (colors, typography, shapes).
+    *   `EmployeeViewModel.kt`: ViewModel responsible for fetching and managing data from the `EmployeeRepository` and exposing it to the UI.
+    *   `EmployeeViewModelFactory.kt`: Factory class for creating instances of `EmployeeViewModel`.
+
+*   **`utils`:** Contains utility functions or classes used throughout the app. (You should add your `isNetworkAvailable` function and any other helper functions here).
+
+*   `MainActivity.kt`: The main activity that hosts the Composable UI.
 
 ## Technologies Used
 
@@ -25,11 +41,7 @@ This Android application demonstrates a basic employee list management app built
 *   **Jetpack Compose:** Modern Android UI toolkit for building declarative UIs.
 *   **LiveData:** For observing data changes in the ViewModel and updating the UI.
 *   **Coroutines:** For asynchronous operations (e.g., network requests).
-*   **`ConnectivityManager`:** To check network availability.
-*   **(Potentially) Room:** For local data persistence (if you decide to implement offline caching).
-*   **(Potentially) Hilt/Dagger:** For dependency injection (recommended for larger projects).
-*   **(Potentially) Retrofit:** For making network requests (likely used in your `EmployeeViewModel`).
-*   **(Potentially) Accompanist:** For additional Compose utilities (e.g., `SwipeRefresh` for pull-to-refresh).
+*   **Retrofit:** For making network requests.
 
 ## Getting Started
 
